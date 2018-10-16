@@ -1,0 +1,42 @@
+input, select {
+	padding: 16px;
+	font-size: 16px;
+	border: 1px solid black;
+	border: 1px solid rgba(0,0,0,0.10);
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
+	border-radius: 4px;
+}
+
+button {
+	background-color: #f7272f;
+	border: .125em solid #f7272f;
+	border-radius: 1px;
+	color: white;
+	width: 200px;
+	height: 48px;
+}
+
+body {
+	font-family: 'Krub', sans-serif;
+	color: rgba(0, 0, 0, 0.65);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	img {
+		width: 80%;
+		height: 80%;
+		margin: 10px 0;
+		border-radius: 4px;
+	}
+}
+
+.item, .input {
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
+	margin: 10px 0;
+	width: 95vw;
+}

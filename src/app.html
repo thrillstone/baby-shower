@@ -1,49 +1,79 @@
 <template>
-	<h1>Baby Shower Games</h1>
-	<h2>Game 1: The price is right</h2>
-	<div class="item">
-		<div class="image">
-			<img src="../static/carseat.jpg">
+	<require from="app.scss"></require>
+	<template if.bind="!gameOver">
+		<h1>Baby Shower Games</h1>
+		<label>Enter your name (must be unique)</label>
+		<input id="name" type="text" value.bind="name"/>
+		<h2>Game 1: The price is right</h2>
+		<div class="item" repeat.for="item of items">
+			<h2 for="${item.id}">${item.name}</h2>
+			<img src.bind="item.img">
+			<input id="${item.id}" type="text" value.bind="item.price"/>
 		</div>
-		<div class="input">
-			<label for="carseat">Peg Perego Primo Viaggio 4-35 Infant Car Seat ($350)</label>
-			<input id="carseat" type="text"/>
+		<h2>Game 2: Guess who?</h2>
+		<div class="item" repeat.for="baby of babies">
+			<img src.bind="baby.img">
+			<select value.bind="baby.guess">
+				<option value="">Choose...</option>
+				<option value="aly">Aly</option>
+				<option value="ben">Ben</option>
+				<option value="chris">Chris</option>
+				<option value="ellen">Ellen</option>
+				<option value="fadel">Fadel</option>
+				<option value="francois">Francois</option>
+				<option value="ian">Ian</option>
+				<option value="james">James</option>
+				<option value="jd">JD</option>
+				<option value="jessie">Jessie</option>
+				<option value="john">John</option>
+				<option value="joy">Joy</option>
+				<option value="julian">Julian</option>
+				<option value="greg">Greg</option>
+				<option value="hadie">Hadie</option>
+				<option value="kevin">Kevin</option>
+				<option value="kevin-son">Kevin's son</option>
+				<option value="kyle">Kyle</option>
+				<option value="linyan">Linyan</option>
+				<option value="mark">Mark</option>
+				<option value="mac">Mackenzie</option>
+				<option value="mike">Mike</option>
+				<option value="nadir">Nadir</option>
+				<option value="nadir-daughter">Nadir's daughter</option>
+				<option value="nadir-son">Nadir's son</option>
+				<option value="niketh">Niketh</option>
+				<option value="nolan">Nolan</option>
+				<option value="rodrigo">Rodrigo</option>
+				<option value="Rod">Rod</option>
+				<option value="rod-son">Rod's son</option>
+				<option value="ryan">Ryan</option>
+				<option value="sabri">Sabri</option>
+				<option value="swheta">Shweta</option>
+				<option value="tiger">Tiger</option>
+				<option value="tony">Tony</option>
+				<option value="tony-daughter">Tony's daughter</option>
+				<option value="ye">Ye</option>
+				<option value="ye-son">Ye's son</option>
+				<option value="yibo">Yibo</option>
+			</select>
 		</div>
-	</div>
-	<div class="item">
-		<div class="image">
-			<img src="../static/diapers.jpg">
+		<button click.delegate="submit()">Submit</button>
+	</template>
+	<div else>
+		Game over
+		<div class="item" repeat.for="player of players">
+			<div>${player.player}</div>
+			<h2>${player.score}</h2>
 		</div>
-		<div class="input">
-			<label for="diapers">Pampers Swaddlers size 6 96 pack ($37)</label>
-			<input id="diapers" type="text"/>
+		<div class="item" repeat.for="i of items.length">
+			<h2 for="${items[i].id}">${items[i].name}</h2>
+			<img src.bind="items[i].img">
+			<div>Correct answer: $${itemRanks[i][0].price}</div>
+			<div repeat.for="person of itemRanks[i]">${person.player}  $${person.guess}</div>
 		</div>
-	</div>
-	<div class="item">
-		<div class="image">
-			<img src="../static/stroller.jpg">
-		</div>
-		<div class="input">
-			<label for="stroller">Baby Jogger City Mini Double Stroller ($700)</label>
-			<input id="stroller" type="text"/>
-		</div>
-	</div>
-	<div class="item">
-		<div class="image">
-			<img src="../static/carrier.jpg">
-		</div>
-		<div class="input">
-			<label for="carrier">BabyBjörn Baby Carrier ($130)</label>
-			<input id="carrier" type="text"/>
-		</div>
-	</div>
-	<div class="item">
-		<div class="image">
-			<img src="../static/playpen.jpg">
-		</div>
-		<div class="input">
-			<label for="playpen">Baby Trend Lil Snooze Deluxe Nursery Centre ($200)</label>
-			<input id="playpen" type="text"/>
+		<div class="item" repeat.for="i of babies.length">
+			<img src.bind="babies[i].img">
+			<div>Correct answer: ${babyRanks[i][0].baby}</div>
+			<div repeat.for="player of babyRanks[i]">${player.player} guessed ${player.guess}</div>
 		</div>
 	</div>
 </template>
