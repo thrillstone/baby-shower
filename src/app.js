@@ -27,7 +27,6 @@ export class App {
 
 		this.httpClient = httpClient;
 		this.httpClient.configure(config => {
-			config.withBaseUrl("http://localhost:7000/");
 			config.withDefaults({
 				headers: {
 					"Content-Type": "application/json"
