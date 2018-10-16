@@ -24,6 +24,8 @@ import baby15 from "../static/15.jpg";
 import baby16 from "../static/16.jpg";
 import baby17 from "../static/17.jpg";
 import baby18 from "../static/18.jpg";
+import baby19 from "../static/19.jpg";
+import baby20 from "../static/20.jpg";
 import { HttpClient } from "aurelia-fetch-client";
 import { inject } from "aurelia-framework";
 
@@ -172,6 +174,16 @@ export class App {
 			{
 				id: 17,
 				img: baby18,
+				guess: ""
+			},
+			{
+				id: 18,
+				img: baby19,
+				guess: ""
+			},
+			{
+				id: 19,
+				img: baby20,
 				guess: ""
 			}
 		];
