@@ -18,6 +18,12 @@ import baby9 from "../static/9.jpg";
 import baby10 from "../static/10.jpg";
 import baby11 from "../static/11.jpg";
 import baby12 from "../static/12.jpg";
+import baby13 from "../static/13.jpg";
+import baby14 from "../static/14.jpg";
+import baby15 from "../static/15.jpg";
+import baby16 from "../static/16.jpg";
+import baby17 from "../static/17.jpg";
+import baby18 from "../static/18.jpg";
 import { HttpClient } from "aurelia-fetch-client";
 import { inject } from "aurelia-framework";
 
@@ -137,6 +143,36 @@ export class App {
 				id: 11,
 				img: baby12,
 				guess: ""
+			},
+			{
+				id: 12,
+				img: baby13,
+				guess: ""
+			},
+			{
+				id: 13,
+				img: baby14,
+				guess: ""
+			},
+			{
+				id: 14,
+				img: baby15,
+				guess: ""
+			},
+			{
+				id: 15,
+				img: baby16,
+				guess: ""
+			},
+			{
+				id: 16,
+				img: baby17,
+				guess: ""
+			},
+			{
+				id: 17,
+				img: baby18,
+				guess: ""
 			}
 		];
 	}
@@ -193,9 +229,9 @@ export class App {
 				})
 			});
 			this.itemRanks.forEach(itemRank => {
-				for (var i = 0; i < 5; ++i) {
+				for (var i = 0; i < 10; ++i) {
 					try {
-						this.players[itemRank[i].index].score += 5 - i;
+						this.players[itemRank[i].index].score += 10 - i;
 					} catch (error) {}
 				}
 			});
@@ -254,6 +290,7 @@ export class App {
 			.then(response => {
 				return response.json();
 			}).then(data => {
+				alert("Thanks for playing! Refresh this page once all players are done to see your results.")
 				console.log(data);
 			});
 	}
